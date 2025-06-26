@@ -42,6 +42,7 @@ Installation
 
 Clone the Repository:
 git clone https://github.com/mohanrajv3/smart_trip_planner_flutter
+
 cd smart_trip_planner_flutter
 
 Install Flutter:
