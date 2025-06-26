@@ -86,7 +86,93 @@ flutter run
 
 Project Structure:
 
-<pre lang="markdown"> ``` smart_trip_planner_flutter/ ├── lib/ │ ├── main.dart │ ├── core/ │ │ ├── constants/ │ │ │ ├── app_colors.dart │ │ │ ├── app_text_styles.dart │ │ │ └── app_constants.dart │ │ ├── utils/ │ │ │ ├── haptic_utils.dart │ │ │ └── validators.dart │ │ ├── errors/ │ │ │ └── failures.dart │ │ └── network/ │ │ └── dio_client.dart │ ├── data/ │ │ ├── datasources/ │ │ │ ├── auth_remote_datasource.dart │ │ │ ├── trip_local_datasource.dart │ │ │ └── ai_agent_datasource.dart │ │ ├── models/ │ │ │ ├── user_model.dart │ │ │ ├── trip_model.dart │ │ │ └── ai_response_model.dart │ │ └── repositories/ │ │ ├── auth_repository_impl.dart │ │ ├── trip_repository_impl.dart │ │ └── ai_agent_repository_impl.dart │ ├── domain/ │ │ ├── entities/ │ │ │ ├── user.dart │ │ │ ├── trip.dart │ │ │ └── itinerary.dart │ │ ├── repositories/ │ │ │ ├── auth_repository.dart │ │ │ ├── trip_repository.dart │ │ │ └── ai_agent_repository.dart │ │ └── usecases/ │ │ ├── auth_usecases.dart │ │ ├── trip_usecases.dart │ │ └── ai_agent_usecases.dart │ ├── presentation/ │ │ ├── providers/ │ │ │ ├── auth_provider.dart │ │ │ ├── trip_provider.dart │ │ │ └── ai_chat_provider.dart │ │ ├── screens/ │ │ │ ├── auth/ │ │ │ │ ├── signup_screen.dart │ │ │ │ └── login_screen.dart │ │ │ ├── home/ │ │ │ │ └── home_screen.dart │ │ │ ├── trip/ │ │ │ │ ├── creating_itinerary_screen.dart │ │ │ │ ├── itinerary_view_screen.dart │ │ │ │ └── chat_screen.dart │ │ │ └── profile/ │ │ │ └── profile_screen.dart │ │ ├── widgets/ │ │ │ ├── common/ │ │ │ │ ├── custom_button.dart │ │ │ │ ├── custom_text_field.dart │ │ │ │ ├── glassmorphic_card.dart │ │ │ │ ├── loading_shimmer.dart │ │ │ │ └── animated_chat_bubble.dart │ │ │ └── trip/ │ │ │ ├── trip_card.dart │ │ │ ├── day_card.dart │ │ │ └── activity_item.dart │ │ └── router/ │ │ └── app_router.dart │ └── services/ │ ├── ai_agent_service.dart │ ├── auth_service.dart │ └── storage_service.dart ├── assets/ │ ├── fonts/ │ └── icons/ ├── test/ │ ├── unit/ │ ├── widget/ │ └── integration/ ├── pubspec.yaml └── README.md ``` </pre>
+```
+smart_trip_planner_flutter/
+├── lib/
+│   ├── main.dart
+│   ├── core/
+│   │   ├── constants/
+│   │   │   ├── app_colors.dart
+│   │   │   ├── app_text_styles.dart
+│   │   │   └── app_constants.dart
+│   │   ├── utils/
+│   │   │   ├── haptic_utils.dart
+│   │   │   └── validators.dart
+│   │   ├── errors/
+│   │   │   └── failures.dart
+│   │   └── network/
+│   │       └── dio_client.dart
+│   ├── data/
+│   │   ├── datasources/
+│   │   │   ├── auth_remote_datasource.dart
+│   │   │   ├── trip_local_datasource.dart
+│   │   │   └── ai_agent_datasource.dart
+│   │   ├── models/
+│   │   │   ├── user_model.dart
+│   │   │   ├── trip_model.dart
+│   │   │   └── ai_response_model.dart
+│   │   └── repositories/
+│   │       ├── auth_repository_impl.dart
+│   │       ├── trip_repository_impl.dart
+│   │       └── ai_agent_repository_impl.dart
+│   ├── domain/
+│   │   ├── entities/
+│   │   │   ├── user.dart
+│   │   │   ├── trip.dart
+│   │   │   └── itinerary.dart
+│   │   ├── repositories/
+│   │   │   ├── auth_repository.dart
+│   │   │   ├── trip_repository.dart
+│   │   │   └── ai_agent_repository.dart
+│   │   └── usecases/
+│   │       ├── auth_usecases.dart
+│   │       ├── trip_usecases.dart
+│   │       └── ai_agent_usecases.dart
+│   ├── presentation/
+│   │   ├── providers/
+│   │   │   ├── auth_provider.dart
+│   │   │   ├── trip_provider.dart
+│   │   │   └── ai_chat_provider.dart
+│   │   ├── screens/
+│   │   │   ├── auth/
+│   │   │   │   ├── signup_screen.dart
+│   │   │   │   └── login_screen.dart
+│   │   │   ├── home/
+│   │   │   │   └── home_screen.dart
+│   │   │   ├── trip/
+│   │   │   │   ├── creating_itinerary_screen.dart
+│   │   │   │   ├── itinerary_view_screen.dart
+│   │   │   │   └── chat_screen.dart
+│   │   │   └── profile/
+│   │   │       └── profile_screen.dart
+│   │   ├── widgets/
+│   │   │   ├── common/
+│   │   │   │   ├── custom_button.dart
+│   │   │   │   ├── custom_text_field.dart
+│   │   │   │   ├── glassmorphic_card.dart
+│   │   │   │   ├── loading_shimmer.dart
+│   │   │   │   └── animated_chat_bubble.dart
+│   │   │   └── trip/
+│   │   │       ├── trip_card.dart
+│   │   │       ├── day_card.dart
+│   │   │       └── activity_item.dart
+│   │   └── router/
+│   │       └── app_router.dart
+│   └── services/
+│       ├── ai_agent_service.dart
+│       ├── auth_service.dart
+│       └── storage_service.dart
+├── assets/
+│   ├── fonts/
+│   └── icons/
+├── test/
+│   ├── unit/
+│   ├── widget/
+│   └── integration/
+├── pubspec.yaml
+└── README.md
+```
+
 
 
 Architecture Diagram
